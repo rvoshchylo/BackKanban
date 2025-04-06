@@ -1,0 +1,9 @@
+model Board {
+  id        String   @id @default(cuid())
+  title     String
+  content   String?
+  done      Boolean  @default(false)
+  author    User     @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  authorId  String
+  todos     Todo[]
+}

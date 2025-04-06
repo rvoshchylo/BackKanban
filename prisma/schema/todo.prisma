@@ -1,0 +1,13 @@
+model Todo {
+  id       String   @id @default(cuid())
+  title    String
+  status   Status   @default(TODO)
+  board    Board    @relation(fields: [boardId], references: [id],onDelete: Cascade)
+  boardId  String
+}
+
+enum Status {
+  TODO
+  IN_PROGRESS
+  DONE
+}
